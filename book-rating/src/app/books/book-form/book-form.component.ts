@@ -24,6 +24,9 @@ export class BookFormComponent implements OnInit {
       title: new FormControl('', Validators.required),
       description: new FormControl('')
     });
+
+    this.bookForm.get('title').valueChanges
+      .subscribe(value => console.log(value));
   }
 
   isInvalid(name: string) {
@@ -34,6 +37,16 @@ export class BookFormComponent implements OnInit {
 
   logForm() {
     console.log(this.bookForm);
+  }
+
+
+  submit() {
+    const newBook: Book = {
+      ...this.bookForm.value,
+      rating: 1
+    };
+
+    this.submitForm.emit(newBook);
   }
 
 }
