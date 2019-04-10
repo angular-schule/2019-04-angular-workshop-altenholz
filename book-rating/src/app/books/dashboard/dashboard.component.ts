@@ -10,13 +10,15 @@ import { BookStoreService } from '../shared/book-store.service';
 })
 export class DashboardComponent implements OnInit {
 
-  books: Book[];
+  books: Book[] = [];
   url = '//angular.schule';
 
   constructor(private rs: BookRatingService, private bs: BookStoreService) { }
 
   ngOnInit() {
-    this.books = this.bs.getAllStatic();
+    // this.books = this.bs.getAllStatic();
+    this.bs.getAll()
+      .subscribe(books => this.books = books);
   }
 
   trackBook(index: number, book: Book) {
