@@ -1,9 +1,17 @@
-<p>
-  book-details works!
-</p>
+<ng-container *ngIf="book; else loading">
+  <h2>{{ book.title }}</h2>
 
+  <p>
+    {{ book.description }}
+  </p>
+</ng-container>
+
+<ng-template #loading>
+  Buch wird geladen...
+</ng-template>
 
 <hr>
 
+<a routerLink="/dashboard">Zum Dashboard</a><br>
+<a routerLink="/books/9783864903571">Angular-Buch</a><br>
 
-<a routerLink="/dashboard">Zum Dashboard</a>
