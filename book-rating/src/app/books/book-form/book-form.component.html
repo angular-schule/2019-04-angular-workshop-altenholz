@@ -1,0 +1,29 @@
+<button class="btn btn-danger" (click)="logForm()">Log form</button>
+
+<form [formGroup]="bookForm">
+  <div class="form-group">
+    <label>ISBN</label>
+    <input class="form-control" type="text" formControlName="isbn">
+    <div class="feedback-red" *ngIf="isInvalid('isbn')">
+      ISBN ist ungültig.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Titel</label>
+    <input class="form-control" type="text" formControlName="title">
+  </div>
+
+  <div class="form-group">
+    <label>Beschreibung</label>
+    <textarea class="form-control" formControlName="description"></textarea>
+  </div>
+
+</form>
+
+{{ bookForm.value | json }}
+
+
+<hr>
+
+<a routerLink="/books">Zum Dashboard</a><br>
