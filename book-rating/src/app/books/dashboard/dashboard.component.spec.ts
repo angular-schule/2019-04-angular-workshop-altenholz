@@ -62,5 +62,14 @@ describe('DashboardComponent', () => {
     expect(rs.rateUp).toHaveBeenCalledWith(book);
   });
 
-  it('should update the book list', () => {});
+  it('should update the book list', () => {
+    // Methode updateList aufrufen
+    component.updateList(book);
+
+    // expect: Buch wurde aktualisiert
+    const foundBook = component.books.find(b => b.isbn === book.isbn);
+
+    expect(foundBook).toBeTruthy();
+    expect(foundBook).toEqual(book); // toEqual() macht Deep Compare
+  });
 });
