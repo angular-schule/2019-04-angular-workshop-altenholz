@@ -29,6 +29,11 @@
 
 </form>
 
+<ul>
+  <li *ngFor="let book of results$ | async">{{ book.title }}</li>
+</ul>
+
+
 {{ bookForm.value | json }}
 
 
