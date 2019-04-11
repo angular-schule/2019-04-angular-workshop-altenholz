@@ -20,7 +20,10 @@ export class BookDetailsComponent implements OnInit {
 
     this.route.paramMap.subscribe(params => {
       const isbn = params.get('isbn');
-      this.bs.getSingle(isbn).subscribe(book => this.book = book);
+      this.bs.getSingle(isbn).subscribe(
+        book => this.book = book,
+        err => console.log(err)
+      );
       // TODO: Doppelte Subscription vermeiden!
     });
 

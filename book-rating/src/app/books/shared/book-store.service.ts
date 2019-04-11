@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,13 @@ export class BookStoreService {
   }
 
   getSingle(isbn: string): Observable<Book> {
-    return this.http.get<Book>(`${this.api}/book/${isbn}`);
+    return this.http.get<Book>(`${this.api}/book/${isbn}`).pipe(
+      catchError(err => {
+        console.log(err);
+        // return throwError('Buch nicht gefunden');
+        return of({ isbn: '', title: 'Nichts passiert', description: '', rating: 4 });
+      })
+    );
   }
 
   create(book: Book): Observable<any> {

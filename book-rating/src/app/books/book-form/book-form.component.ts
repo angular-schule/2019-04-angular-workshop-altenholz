@@ -37,7 +37,7 @@ export class BookFormComponent implements OnInit, OnDestroy {
       debounceTime(1000),
       distinctUntilChanged(),
       mergeMap(term => this.bs.search(term)),
-      takeUntil(this.destroy$)
+      takeUntil(this.destroy$) // nur bei eigenen Subscriptions ohne async-Pipe
     );
   }
 
