@@ -13,8 +13,7 @@
     <p>{{ book.description }}</p>
 
     <p>
-      <span *ngFor="let x of getRating()">⭐️</span>
-      <!-- TODO: eigene Strukturdirektive?? -->
+      <ng-container *brRepeat="book.rating">⭐️</ng-container>
     </p>
 
     <button (click)="doRateUp()" class="btn btn-secondary mr-2" data-testing-id="rateUpBtn">+</button>
