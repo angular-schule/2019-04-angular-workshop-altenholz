@@ -4,6 +4,16 @@
     {{ title }}
   </h1>
 
+  <div>
+    <button (click)="login()"
+      class="btn btn-success">Login</button>
+  </div>
+
   <router-outlet></router-outlet>
+
+  <div [title]="title">div1</div>
+  <div [attr.title]="title">div1</div>
+
+<div title="{{ title }}">div2</div>
 
 </div>

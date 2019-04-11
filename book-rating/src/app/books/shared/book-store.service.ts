@@ -30,11 +30,11 @@ export class BookStoreService {
   }
 
   getAll(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.api}/books`);
+    return this.http.get<Book[]>(`${this.api}/secure/books`);
   }
 
   getSingle(isbn: string): Observable<Book> {
-    return this.http.get<Book>(`${this.api}/book/${isbn}`).pipe(
+    return this.http.get<Book>(`${this.api}/secure/book/${isbn}`).pipe(
       catchError(err => {
         console.log(err);
         // return throwError('Buch nicht gefunden');

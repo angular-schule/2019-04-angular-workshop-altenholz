@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'br-root',
@@ -9,7 +10,11 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'Book Rating';
 
-  constructor() {
+  constructor(private auth: AuthService, @Inject(LOCALE_ID) private locale: string) {
+
+    console.log(this.locale);
+
+    // ----------------
     // setTimeout(() => this.title = 'HALLO', 2000);
 
 
@@ -37,5 +42,10 @@ export class AppComponent {
     myObservable.subscribe(observer);
 
 
+  }
+
+
+  login() {
+    this.auth.authorize();
   }
 }
