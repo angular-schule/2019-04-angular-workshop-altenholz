@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE messagebundle [
+<!ELEMENT messagebundle (msg)*>
+<!ATTLIST messagebundle class CDATA #IMPLIED>
+
+<!ELEMENT msg (#PCDATA|ph|source)*>
+<!ATTLIST msg id CDATA #IMPLIED>
+<!ATTLIST msg seq CDATA #IMPLIED>
+<!ATTLIST msg name CDATA #IMPLIED>
+<!ATTLIST msg desc CDATA #IMPLIED>
+<!ATTLIST msg meaning CDATA #IMPLIED>
+<!ATTLIST msg obsolete (obsolete) #IMPLIED>
+<!ATTLIST msg xml:space (default|preserve) "default">
+<!ATTLIST msg is_hidden CDATA #IMPLIED>
+
+<!ELEMENT source (#PCDATA)>
+
+<!ELEMENT ph (#PCDATA|ex)*>
+<!ATTLIST ph name CDATA #REQUIRED>
+
+<!ELEMENT ex (#PCDATA)>
+]>
+<messagebundle>
+  <msg id="isbnlabel"><source>app/books/book-form/book-form.component.html:5</source>ISBN</msg>
+  <msg id="isbnmessage"><source>app/books/book-form/book-form.component.html:7,9</source>
+      ISBN ist ungültig.
+    </msg>
+  <msg id="titlelabel"><source>app/books/book-form/book-form.component.html:13</source>Titel</msg>
+  <msg id="desclabel"><source>app/books/book-form/book-form.component.html:18</source>Beschreibung</msg>
+  <msg id="submitbutton"><source>app/books/book-form/book-form.component.html:26,28</source>
+    Abschicken
+  </msg>
+</messagebundle>
